@@ -12,6 +12,12 @@ public class PickUpBehaviour : MonoBehaviour
     private Item currentItem;
     public void DoPickUp(Item item)
     {
+        //Si l'enventaire on ne ramasse rien
+        if(inventory.IsFull() )
+        {
+            Debug.Log("L'inventaire est plein, impossible de ramasser : " + item.name);
+            return; 
+        }
         currentItem = item;
         //Joue l'animation du personnage pour ramasser l'objet
         playerAnimator.SetTrigger("PickUp");
