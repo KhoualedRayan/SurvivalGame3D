@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            ToolTipSystem.instance.Hide();
         }
     }
     public void AddItem(ItemData item) {
@@ -38,7 +39,9 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < content.Count; ++i)
         {
-            inventorySlotParent.GetChild(i).GetChild(0).GetComponent<Image>().sprite = content[i].visual;
+            Slot currentSlot = inventorySlotParent.GetChild(i).GetComponent<Slot>();
+            currentSlot.SetItemData(content[i]);
+            currentSlot.SetItemVisual(content[i].visual);
         }
     }
     public bool IsFull()
