@@ -1017,6 +1017,7 @@ Transform:
   - {fileID: 8018214403497295447}
   - {fileID: 2339865049046370806}
   - {fileID: 1349988991}
+  - {fileID: 6909098846827348548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4540229000190281644
@@ -5564,6 +5565,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.25519583, y: -0.07867024, z: -0.000073224306}
     m_Extent: {x: 0.32439306, y: 0.2883675, z: 0.8075824}
   m_DirtyAABB: 0
+--- !u!1 &8043082114582505108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6909098846827348548}
+  m_Layer: 0
+  m_Name: DropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6909098846827348548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043082114582505108}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.016, y: 1.408, z: 0.506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438546959266459337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8047095701261929936
 GameObject:
   m_ObjectHideFlags: 0

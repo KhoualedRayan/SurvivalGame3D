@@ -28,4 +28,12 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         this.itemVisual.sprite = itemVisual;
     }
+    public void ClickOnSlot()
+    {
+        if(itemData != null)
+        {
+            Inventory.instance.OpenActionPanel(itemData, transform.position);
+        }
+        
+    }
 }
