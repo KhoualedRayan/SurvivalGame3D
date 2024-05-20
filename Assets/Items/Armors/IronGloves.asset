@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de211eadb38af8e46b4ccfc2a24aa32d, type: 3}
-  m_Name: Helmet
+  m_Name: IronGloves
   m_EditorClassIdentifier: 
-  itemName: Helmet
-  description: Iron helmet.
-  visual: {fileID: 21300000, guid: 358541a3db89a6f45956a5d4726d7312, type: 3}
-  prefab: {fileID: 1827631209878845637, guid: d18cfff6e9a8fbb4184a25697207256d, type: 3}
+  itemName: Iron Gloves
+  description: Very uncomfy gloves but solid.
+  visual: {fileID: 21300000, guid: 3f3f612e2e18b4742ba62c1d294abdc6, type: 3}
+  prefab: {fileID: 5383052548620464196, guid: d92a3b4d19bd3b64fa0c2f8617873fc6, type: 3}
   type: 1
+  equipmentType: 2

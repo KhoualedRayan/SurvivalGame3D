@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour
@@ -37,6 +38,9 @@ public class Inventory : MonoBehaviour
     private GameObject dropItemButton;
     [SerializeField]
     private GameObject destroyItemButton;
+
+    [SerializeField]
+    private EquipmentLibrary equipmentLibrary;
 
     private void Awake()
     {
@@ -126,6 +130,19 @@ public class Inventory : MonoBehaviour
     public void EquipItemButton()
     {
         Debug.Log("Equip item : " + itemCurrentlySelected.name);
+        EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem =>  elem.itemData == itemCurrentlySelected).First();
+        if (equipmentLibraryItem != null)
+        {
+            foreach (GameObject elem in equipmentLibraryItem.elementsToDisable)
+            {
+                elem.SetActive(false);
+            }
+            equipmentLibraryItem.itemPrefab.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Equipement : " + itemCurrentlySelected.name + " non existant dans la librairie des équipements.");
+        }
         CloseActionPanel();
     }
     public void DropItemButton()

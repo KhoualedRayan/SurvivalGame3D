@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de211eadb38af8e46b4ccfc2a24aa32d, type: 3}
+  m_Name: IronPants
+  m_EditorClassIdentifier: 
+  itemName: Iron Pants
+  description: A solid iron pants
+  visual: {fileID: 21300000, guid: 869a1d3333f2fad42a630f0686bcd047, type: 3}
+  prefab: {fileID: 7972321366090734272, guid: c33ed9789ecb4fc468e0296af4f5d4bb, type: 3}
+  type: 1
+  equipmentType: 3

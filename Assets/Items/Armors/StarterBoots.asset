@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de211eadb38af8e46b4ccfc2a24aa32d, type: 3}
+  m_Name: StarterBoots
+  m_EditorClassIdentifier: 
+  itemName: Starter Boots
+  description: Starter leather boots. Comfy but very cheap.
+  visual: {fileID: 21300000, guid: c636fde9129857d409019264abc7ab79, type: 3}
+  prefab: {fileID: 353392173707857445, guid: 9ae1f67af4deebe43bc192e00a40ffeb, type: 3}
+  type: 1
+  equipmentType: 4
