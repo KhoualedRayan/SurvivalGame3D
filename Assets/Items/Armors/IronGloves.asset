@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Iron Gloves
   description: Very uncomfy gloves but solid.
   visual: {fileID: 21300000, guid: 3f3f612e2e18b4742ba62c1d294abdc6, type: 3}
-  prefab: {fileID: 5383052548620464196, guid: d92a3b4d19bd3b64fa0c2f8617873fc6, type: 3}
+  prefab: {fileID: 8246496971807799132, guid: 419e453282223ac449b578afa891a4dd, type: 3}
   type: 1
   equipmentType: 2

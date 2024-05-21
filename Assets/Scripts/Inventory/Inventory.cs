@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory Panel References")]
     [SerializeField]
     private List<ItemData> content = new List<ItemData>();
 
@@ -15,12 +16,6 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     private Transform dropPoint;
-
-    const int InventorySize = 24;
-
-    public static Inventory instance;
-
-    private ItemData itemCurrentlySelected;
 
     [SerializeField]
     private Sprite emptySlotVisual;
@@ -39,8 +34,28 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject destroyItemButton;
 
+    [Header("Equipments Panel References")]
+
     [SerializeField]
     private EquipmentLibrary equipmentLibrary;
+
+    [SerializeField]
+    private Image headSlotImage;
+    [SerializeField]
+    private Image chestSlotImage;
+    [SerializeField]
+    private Image handsSlotImage;
+    [SerializeField]
+    private Image legsSlotImage;
+    [SerializeField]
+    private Image feetSlotImage;
+
+    /* Données non visibles sur la scène */
+    const int InventorySize = 24;
+
+    public static Inventory instance;
+
+    private ItemData itemCurrentlySelected;
 
     private void Awake()
     {
@@ -129,15 +144,43 @@ public class Inventory : MonoBehaviour
     }
     public void EquipItemButton()
     {
-        Debug.Log("Equip item : " + itemCurrentlySelected.name);
+        //On cherche le modèle 3D de l'équipement à s'équiper
         EquipmentLibraryItem equipmentLibraryItem = equipmentLibrary.content.Where(elem =>  elem.itemData == itemCurrentlySelected).First();
         if (equipmentLibraryItem != null)
         {
+            //On désactive les visuels inutiles pour éviter le clipping
             foreach (GameObject elem in equipmentLibraryItem.elementsToDisable)
             {
                 elem.SetActive(false);
             }
+            //On active le modèle 3D de l'équipement
             equipmentLibraryItem.itemPrefab.SetActive(true);
+            //On met le sprite de l'item équipé dans le slot de l'inventaire
+            switch(itemCurrentlySelected.equipmentType)
+            {
+                case EquipmentType.Head:
+                    headSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Chest:
+                    chestSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Hands:
+                    handsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Pants:
+                    legsSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+
+                case EquipmentType.Feet:
+                    feetSlotImage.sprite = itemCurrentlySelected.visual;
+                    break;
+            }
+            // On enlève l'item de l'invetaire et rafrachit le contenu
+            content.Remove(itemCurrentlySelected);
+            RefreshContent();
         }
         else
         {
