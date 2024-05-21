@@ -1307,6 +1307,11 @@ MonoBehaviour:
   handsSlotImage: {fileID: 1481208241}
   legsSlotImage: {fileID: 1840878227}
   feetSlotImage: {fileID: 1786621683}
+  headSlotDesequipButton: {fileID: 1352888216}
+  chestSlotDesequipButton: {fileID: 606796982}
+  handsSlotDesequipButton: {fileID: 848005613}
+  legsSlotDesequipButton: {fileID: 706099034}
+  feetSlotDesequipButton: {fileID: 2010203208}
 --- !u!1001 &332455630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1795,6 +1800,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6300130511648840962, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 58295565}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &606796982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+  m_PrefabInstance: {fileID: 1862094778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &611720895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2163,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &706099034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+  m_PrefabInstance: {fileID: 1840878225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721105003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6561344539034066924, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
@@ -2443,6 +2470,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 556684188}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &848005613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+  m_PrefabInstance: {fileID: 1481208239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &885251199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +4032,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3570337794732854366, guid: b242cf1d896917142b587d06d994e89f, type: 3}
   m_PrefabInstance: {fileID: 1346357736}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1352888216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+  m_PrefabInstance: {fileID: 7830853466759252183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1362509891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4188,6 +4237,14 @@ PrefabInstance:
     - target: {fileID: 3150178510597218299, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132927333879216913, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: HandsItemImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675674538973501146, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: HandsDesequipButton
       objectReference: {fileID: 0}
     - target: {fileID: 6227329728041627349, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_Sprite
@@ -5006,6 +5063,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5132927333879216913, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: FeetItemImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675674538973501146, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: FeetDesequipButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6227329728041627349, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5228,6 +5293,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5132927333879216913, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: LegsItemImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675674538973501146, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: LegsDesequipButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6227329728041627349, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5344,6 +5417,14 @@ PrefabInstance:
     - target: {fileID: 3150178510597218299, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132927333879216913, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: ChestItemImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675674538973501146, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: ChestDesequipButton
       objectReference: {fileID: 0}
     - target: {fileID: 6227329728041627349, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_Sprite
@@ -5681,6 +5762,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 185160433139728343, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 58295565}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2010203208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+  m_PrefabInstance: {fileID: 1786621681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032698771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,9 +6860,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5132927333879216913, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: HeadItemImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675674538973501146, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_Name
+      value: HeadDesequipButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8707925904055866381, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
       propertyPath: m_Name
       value: HeadSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276499080}
+    - target: {fileID: 8936112556040791432, guid: 5f8b3a9cad43a15448fdb64ab972ded1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
