@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276499082}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: EquipItemButton
+      - m_Target: {fileID: 276499083}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
+        m_MethodName: EquipActionButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -339,8 +339,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276499082}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 276499083}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: UseItemButton
         m_Mode: 1
         m_Arguments:
@@ -788,6 +788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (8)
@@ -890,6 +894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (5)
@@ -992,6 +1000,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (6)
@@ -1094,6 +1106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (20)
@@ -1255,6 +1271,8 @@ GameObject:
   m_Component:
   - component: {fileID: 276499081}
   - component: {fileID: 276499082}
+  - component: {fileID: 276499084}
+  - component: {fileID: 276499083}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -1289,18 +1307,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac76ea0f7c42634595082a26be1c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipment: {fileID: 276499084}
+  itemActionsSystem: {fileID: 276499083}
   content:
   - {fileID: 11400000, guid: 80e04ad9616adfd4388d2a0543f4e8ac, type: 2}
   - {fileID: 11400000, guid: d674b31c3ab464a43a6511660f87cb65, type: 2}
   inventoryPanel: {fileID: 902574783}
   inventorySlotParent: {fileID: 2110716246}
-  dropPoint: {fileID: 60076979}
   emptySlotVisual: {fileID: 21300000, guid: 25d0ac2a41f0cd541869ac8148bf3e3f, type: 3}
+--- !u!114 &276499083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276499080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388e2813749b52b4597148ec12b0b306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 276499084}
   actionPanel: {fileID: 1721538507}
+  dropPoint: {fileID: 60076979}
   useItemButton: {fileID: 30546827}
   equipItemButton: {fileID: 12363839}
   dropItemButton: {fileID: 885251199}
   destroyItemButton: {fileID: 1499257776}
+--- !u!114 &276499084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276499080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63280a460a62fe940b922b607dfde4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemActionsSystem: {fileID: 276499083}
   equipmentLibrary: {fileID: 1946002186}
   headSlotImage: {fileID: 7830853466759252185}
   chestSlotImage: {fileID: 1862094780}
@@ -1320,6 +1366,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (4)
@@ -1506,6 +1556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (9)
@@ -1924,6 +1978,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (16)
@@ -2282,6 +2340,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (23)
@@ -2564,8 +2626,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276499082}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 276499083}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DropItemButton
         m_Mode: 1
         m_Arguments:
@@ -2784,6 +2846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (18)
@@ -3286,8 +3352,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276499082}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 276499083}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: CloseActionPanel
         m_Mode: 1
         m_Arguments:
@@ -3423,6 +3489,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (21)
@@ -3525,6 +3595,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (15)
@@ -3627,6 +3701,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (1)
@@ -3729,6 +3807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (13)
@@ -3836,6 +3918,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (10)
@@ -3938,6 +4024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (3)
@@ -4051,6 +4141,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (2)
@@ -4283,6 +4377,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (12)
@@ -4465,8 +4563,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276499082}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 276499083}
+        m_TargetAssemblyTypeName: ItemActionsSystem, Assembly-CSharp
         m_MethodName: DestroyItemButton
         m_Mode: 1
         m_Arguments:
@@ -4523,6 +4621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (11)
@@ -4625,6 +4727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (22)
@@ -4727,6 +4833,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (14)
@@ -5568,6 +5678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (19)
@@ -6080,6 +6194,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (17)
@@ -6182,6 +6300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot (7)
@@ -6683,6 +6805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2110716246}
     m_Modifications:
+    - target: {fileID: 326768193636421412, guid: b242cf1d896917142b587d06d994e89f, type: 3}
+      propertyPath: itemActionsSystem
+      value: 
+      objectReference: {fileID: 276499083}
     - target: {fileID: 1829470645789477505, guid: b242cf1d896917142b587d06d994e89f, type: 3}
       propertyPath: m_Name
       value: Slot

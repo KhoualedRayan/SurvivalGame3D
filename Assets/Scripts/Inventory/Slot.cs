@@ -8,6 +8,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     [SerializeField]
     private Image itemVisual;
+
+    [SerializeField]
+    private ItemActionsSystem itemActionsSystem;    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (itemData != null) { 
@@ -32,7 +35,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(itemData != null)
         {
-            Inventory.instance.OpenActionPanel(itemData, transform.position);
+            itemActionsSystem.OpenActionPanel(itemData, transform.position);
         }
         
     }
