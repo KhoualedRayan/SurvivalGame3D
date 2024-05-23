@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -9,11 +10,18 @@ public class InteractBehaviour : MonoBehaviour
     private Animator playerAnimator;
     [SerializeField]
     private MoveBehaviour playerMoveBehaviour;
+    [Header("TOOLS VISUALS")]
     [SerializeField]
     private GameObject pickaxeVisual;
+    [SerializeField]
+    private GameObject axeVisual;
 
+    /* Données non visibles dans la scène */
     private Item currentItem;
     private Harvestable currentHarvestable;
+    private Tool currentTool;
+    private Vector3 spawnItemOffSet = new Vector3(0,0.8f,0);
+
     public void DoPickUp(Item item)
     {
         //Si l'enventaire on ne ramasse rien
@@ -31,7 +39,8 @@ public class InteractBehaviour : MonoBehaviour
     }
     public void DoHarvest(Harvestable harvestable)
     {
-        pickaxeVisual.SetActive(true);
+        currentTool = harvestable.GetTool();
+        EnableToolGameObjectFromEnum(currentTool);
         currentHarvestable = harvestable;
         //Joue l'animation du personnage pour Miner
         playerAnimator.SetTrigger("Harvest");
@@ -39,18 +48,33 @@ public class InteractBehaviour : MonoBehaviour
         playerMoveBehaviour.SetCanMove(false);
         
     }
-    public void BreakHarvestable()
+    public IEnumerator BreakHarvestable()
     {
+        Vector3 tempOffset = spawnItemOffSet;
+        //Si on doit enlever le Kinematic de l'objet a détruire
+        if (currentHarvestable.IsDisableKinematicOnHarvest())
+        {
+            //On Récupère son rigidbody et on le passe a false
+            Rigidbody rigidbody = currentHarvestable.gameObject.GetComponent<Rigidbody>();
+            rigidbody.isKinematic = false;
+            //On lui donne une légère impulsion pour que l'objet tombe
+            rigidbody.AddForce(new Vector3(750,750,0),ForceMode.Impulse);
+        }
+        //On attend le temps nécessaire pour qu'il soit détruit
+        yield return new WaitForSeconds(currentHarvestable.GetDestroyDelay());
+
         //Pour chaque ressource dans l'item à casser
         foreach (Ressource ressource in currentHarvestable.GetHarvestablesItems())
         {
             //On boucle avec un nombre aléatoire entre le min et le max d'items récupérables en cassant l'item
-            for(int i = 0; i< Random.Range(ressource.minAmountSpawned,(float) ressource.maxAmountSpawned); ++i)
+            if(Random.Range(1,101) <= ressource.dropRate)
             {
                 //On les crée et les mets dans la scène à l'endroit du collectable
-                GameObject instantiatiedRessource = GameObject.Instantiate(ressource.itemData.prefab);
-                instantiatiedRessource.transform.position = currentHarvestable.transform.position;
+                GameObject instantiatiedRessource = Instantiate(ressource.itemData.prefab);
+                instantiatiedRessource.transform.position = currentHarvestable.transform.position + tempOffset;
+                
             }
+            tempOffset.z += 0.3f;
         }
         //On détruit l'objet
         Destroy(currentHarvestable.gameObject);
@@ -65,6 +89,18 @@ public class InteractBehaviour : MonoBehaviour
     public void ReEnablePlayerMovements()
     {
         playerMoveBehaviour.SetCanMove(true);
-        pickaxeVisual.SetActive(false);
+        EnableToolGameObjectFromEnum(currentTool,false);
+    }
+    private void EnableToolGameObjectFromEnum(Tool toolType,bool enabled = true)
+    {
+        switch (toolType)
+        {
+            case Tool.Pickaxe:
+                pickaxeVisual.SetActive(enabled); 
+                break;
+            case Tool.Axe:
+                axeVisual.SetActive(enabled);
+                break;
+        }
     }
 }
