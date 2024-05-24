@@ -51,6 +51,7 @@ public class InteractBehaviour : MonoBehaviour
     public IEnumerator BreakHarvestable()
     {
         Vector3 tempOffset = spawnItemOffSet;
+        Harvestable currentHarvestable = this.currentHarvestable;
         //Si on doit enlever le Kinematic de l'objet a détruire
         if (currentHarvestable.IsDisableKinematicOnHarvest())
         {

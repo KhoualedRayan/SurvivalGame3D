@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Palm Log
   description: A log from a palm tree.
-  visual: {fileID: 21300000, guid: c307f9eba031d50478052455fb008965, type: 3}
-  prefab: {fileID: 5244811292682458513, guid: 3b4ed36600c8b3d44b9aede85a74f700, type: 3}
+  visual: {fileID: 21300000, guid: a213a6054eec93943b00c4d840ee788d, type: 3}
+  prefab: {fileID: 4021560101135841049, guid: 4631e3ece13f2584b980156b1bd0f428, type: 3}
   type: 0
   equipmentType: 0
