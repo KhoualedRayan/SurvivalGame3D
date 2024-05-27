@@ -10,6 +10,9 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private ItemActionsSystem itemActionsSystem;
 
+    [SerializeField]
+    private CraftingSystem craftingSystem;
+
     [Header("INVETORY SYSTEM VARIABLES")]
 
     [SerializeField]
@@ -80,6 +83,7 @@ public class Inventory : MonoBehaviour
             currentSlot.SetItemVisual(content[i].visual);
         }
         equipment.UpdateEquipmentsDesequipButton();
+        craftingSystem.UpdateDisplayRecipes();
     }
     public bool IsFull()
     {
@@ -93,6 +97,9 @@ public class Inventory : MonoBehaviour
     {
         return emptySlotVisual;
     }
-
+    public List<ItemData> GetContent()
+    {
+        return content;
+    }
 
 }

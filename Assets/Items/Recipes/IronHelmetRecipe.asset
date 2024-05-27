@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a1456bb34337a4ea9b91901c4e1f5b, type: 3}
+  m_Name: IronHelmetRecipe
+  m_EditorClassIdentifier: 
+  craftableItem: {fileID: 11400000, guid: d674b31c3ab464a43a6511660f87cb65, type: 2}
+  requiredItems:
+  - {fileID: 11400000, guid: 80e04ad9616adfd4388d2a0543f4e8ac, type: 2}
+  - {fileID: 11400000, guid: 80e04ad9616adfd4388d2a0543f4e8ac, type: 2}
+  - {fileID: 11400000, guid: 819725544077f924e99668b16853b449, type: 2}
