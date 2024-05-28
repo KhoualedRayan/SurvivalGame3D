@@ -21,9 +21,12 @@ public class InteractBehaviour : MonoBehaviour
     private Harvestable currentHarvestable;
     private Tool currentTool;
     private Vector3 spawnItemOffSet = new Vector3(0,0.8f,0);
-
+    private bool isBusy = false;    
     public void DoPickUp(Item item)
     {
+        if (isBusy) return;
+        isBusy = true;
+
         //Si l'enventaire on ne ramasse rien
         if(inventory.IsFull() )
         {
@@ -39,6 +42,9 @@ public class InteractBehaviour : MonoBehaviour
     }
     public void DoHarvest(Harvestable harvestable)
     {
+        if (isBusy) return;
+        isBusy = true;
+
         currentTool = harvestable.GetTool();
         EnableToolGameObjectFromEnum(currentTool);
         currentHarvestable = harvestable;
@@ -50,6 +56,8 @@ public class InteractBehaviour : MonoBehaviour
     }
     public IEnumerator BreakHarvestable()
     {
+        this.currentHarvestable.gameObject.layer = LayerMask.NameToLayer("Default");
+
         Vector3 tempOffset = spawnItemOffSet;
         Harvestable currentHarvestable = this.currentHarvestable;
         //Si on doit enlever le Kinematic de l'objet a détruire
@@ -59,7 +67,7 @@ public class InteractBehaviour : MonoBehaviour
             Rigidbody rigidbody = currentHarvestable.gameObject.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             //On lui donne une légère impulsion pour que l'objet tombe
-            rigidbody.AddForce(new Vector3(750,750,0),ForceMode.Impulse);
+            rigidbody.AddForce(transform.forward * 800 ,ForceMode.Impulse);
         }
         //On attend le temps nécessaire pour qu'il soit détruit
         yield return new WaitForSeconds(currentHarvestable.GetDestroyDelay());
@@ -91,6 +99,7 @@ public class InteractBehaviour : MonoBehaviour
     {
         playerMoveBehaviour.SetCanMove(true);
         EnableToolGameObjectFromEnum(currentTool,false);
+        isBusy = false;
     }
     private void EnableToolGameObjectFromEnum(Tool toolType,bool enabled = true)
     {
