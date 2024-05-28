@@ -9,6 +9,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     private Image itemVisual;
 
+    [SerializeField] 
+    private Text countText;
+
     [SerializeField]
     private ItemActionsSystem itemActionsSystem;    
     public void OnPointerEnter(PointerEventData eventData)
@@ -39,4 +42,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         
     }
+    public Text GetCountText() {  return countText; }
+    public void SetCountText(string _countText) {
+        this.countText.text = _countText; 
+    }
+    public ItemData GetItemData() {  return itemData; }
 }
