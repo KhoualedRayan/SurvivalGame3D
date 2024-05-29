@@ -54,9 +54,15 @@ public class Recipe : MonoBehaviour
 
 
             //On vérifie si on a tout les objets dans l'inventaire && On met la couleur nécessaire au fond de l'image selon si il est disponible
-            ItemInInventory itemInInventoryCopy = Inventory.instance.GetItemIfExistsInInventory(requiredItem);
+            ItemInInventory[] itemInInventory = Inventory.instance.GetItemArrayIfExistsInInventory(requiredItem);
 
-            if (itemInInventoryCopy != null && itemInInventoryCopy.count >= recipe.requiredItems[i].count) 
+            int totalRequiredItemQuantityInInventory = 0;
+            for (int y = 0; y < itemInInventory.Length; y++)
+            {
+                totalRequiredItemQuantityInInventory+= itemInInventory[y].count;
+            }
+
+            if (totalRequiredItemQuantityInInventory >= recipe.requiredItems[i].count) 
             {
                 requiredItemGOImage.color = availableColor;
             }
@@ -88,7 +94,10 @@ public class Recipe : MonoBehaviour
     {
         foreach (ItemInInventory itemInInventory in currentRecipe.requiredItems)
         {
-            Inventory.instance.RemoveItem(itemInInventory.itemData, itemInInventory.count);
+            for(int i = 0; i < itemInInventory.count; i++)
+            {
+                Inventory.instance.RemoveItem(itemInInventory.itemData);
+            }
         }
         Inventory.instance.AddItem(currentRecipe.craftableItem);
     }

@@ -54,12 +54,25 @@ public class Inventory : MonoBehaviour
     }
     public void AddItem(ItemData item) {
         //Met l'item dans itemininventory si on l'a dans l'inventaire sinon on met la var a null
-        ItemInInventory itemInInventory = GetItemIfExistsInInventory(item);
+        ItemInInventory[] itemInInventory = GetItemArrayIfExistsInInventory(item);
+        bool itemAdded = false;
         //Si on l'a et qu'il est stackable
-        if (itemInInventory != null && item.stackable)
+
+        if (itemInInventory.Length > 0 && item.stackable)
         {
-            //On rajoute un stack
-            itemInInventory.count++;
+            foreach(ItemInInventory itemInInventoryItem in itemInInventory)
+            {
+                if (itemInInventoryItem.count < item.maxStack)
+                {
+                    itemAdded = true;
+                    itemInInventoryItem.count++;
+                    break;
+                }
+            }
+            if (!itemAdded)
+            {
+                content.Add(new ItemInInventory(item, 1));
+            }
         }
         else
         {
@@ -68,13 +81,13 @@ public class Inventory : MonoBehaviour
         }
         RefreshContent();
     }
-    public void RemoveItem(ItemData item, int count =1) {
+    public void RemoveItem(ItemData item) {
         ItemInInventory itemInInventory = GetItemIfExistsInInventory(item);
         //Si on a plus d'un élément dans l'inventaire
-        if(itemInInventory.count> count)
+        if(itemInInventory.count > 1)
         {
             //On en enlève 1
-            itemInInventory.count-= count;
+            itemInInventory.count--;
         }
         else
         {
@@ -134,6 +147,10 @@ public class Inventory : MonoBehaviour
     public ItemInInventory GetItemIfExistsInInventory(ItemData item)
     {
         return content.Where(elem => elem.itemData == item).FirstOrDefault();
+    }
+    public ItemInInventory[] GetItemArrayIfExistsInInventory(ItemData item)
+    {
+        return content.Where(elem => elem.itemData == item).ToArray();
     }
 
 }
