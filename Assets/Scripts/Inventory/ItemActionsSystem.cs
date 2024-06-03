@@ -7,6 +7,9 @@ public class ItemActionsSystem : MonoBehaviour
     [SerializeField]
     private Equipment equipment;
 
+    [SerializeField]
+    private PlayerStats playerStats;
+
     [Header("ITEM ACTIONS SYSTEM VARIABLES")]
 
     [SerializeField]
@@ -60,7 +63,8 @@ public class ItemActionsSystem : MonoBehaviour
     }
     public void UseItemButton()
     {
-        Debug.Log("Use item : " + itemCurrentlySelected.name);
+        playerStats.ConsumeItem(itemCurrentlySelected.healthEffect,itemCurrentlySelected.hungerEffect,itemCurrentlySelected.thirstEffect);
+        Inventory.instance.RemoveItem(itemCurrentlySelected);
         CloseActionPanel();
     }
 

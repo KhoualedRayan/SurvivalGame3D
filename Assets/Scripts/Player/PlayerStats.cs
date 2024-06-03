@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private float healthDecreaseRateForHungerAndThirst;
 
-    private float currentHealth;
+    public float currentHealth;
 
     [Header("HUNGER")]
 
@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private float hungerDecreaseRate; // 0.1 = 16m
 
-    private float currentHunger;
+    public float currentHunger;
 
     [Header("THIRST")]
 
@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private float thirstDecreaseRate; //0.2 = 8m
 
-    private float currentThirst;
+    public float currentThirst;
 
     [Header("OTHER THINGS")]
     [SerializeField]
@@ -98,5 +98,12 @@ public class PlayerStats : MonoBehaviour
         {
             TakeDamage((currentHunger <= 0 && currentThirst <= 0 ? healthDecreaseRateForHungerAndThirst *2 : healthDecreaseRateForHungerAndThirst),true);
         }
+    }
+    public void ConsumeItem(float health, float hunger, float thirst)
+    {
+        currentHealth = Mathf.Min(maxHealth, health + currentHealth);
+        currentHunger = Mathf.Min(maxHunger, hunger + currentHunger);
+        currentThirst = Mathf.Min(maxThirst, thirst + currentThirst);
+        UpdateHealthBarFill();
     }
 }
