@@ -36,6 +36,10 @@ public class PlayerStats : MonoBehaviour
 
     private float currentThirst;
 
+    [Header("OTHER THINGS")]
+    [SerializeField]
+    private Animator animator;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -67,6 +71,7 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Player Died");
         }
+        animator.SetTrigger("TakeDamage");
         UpdateHealthBarFill();
     }
     private void UpdateHealthBarFill()
