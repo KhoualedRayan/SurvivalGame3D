@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 4268986314573748828}
   - component: {fileID: 1706306384550334830}
   - component: {fileID: 112397742550959537}
+  - component: {fileID: 3441052223887720440}
   m_Layer: 0
   m_Name: HumanMale_Character_FREE
   m_TagString: Player
@@ -1177,6 +1178,31 @@ MonoBehaviour:
   playerMoveBehaviour: {fileID: 4268986314573748828}
   pickaxeVisual: {fileID: 6979147725287582521}
   axeVisual: {fileID: 6063150975958140550}
+--- !u!114 &3441052223887720440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782702501690864755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5235fff71d67c14ca77aace9d7320eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthBarFill: {fileID: 0}
+  healthDecreaseRateForHungerAndThirst: 2
+  currentHealth: 0
+  maxHunger: 100
+  hungerBarFill: {fileID: 0}
+  hungerDecreaseRate: 0.1
+  currentHunger: 0
+  maxThirst: 100
+  thirstBarFill: {fileID: 0}
+  thirstDecreaseRate: 0.2
+  currentThirst: 0
+  animator: {fileID: 0}
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0
