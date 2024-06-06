@@ -16,5 +16,11 @@ MonoBehaviour:
   description: Warm starter leather chest.
   visual: {fileID: 21300000, guid: 0ecfc25e64ad1ef4b9775690fa709b5a, type: 3}
   prefab: {fileID: 8538547339629624469, guid: d7a95e6cd21b73c4ca2550858be20820, type: 3}
+  stackable: 0
+  maxStack: 0
   type: 1
   equipmentType: 1
+  armorPoints: 2
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0

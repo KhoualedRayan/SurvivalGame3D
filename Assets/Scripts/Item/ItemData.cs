@@ -15,6 +15,9 @@ public class ItemData : ScriptableObject
     public ItemType type;
     public EquipmentType equipmentType;
 
+    [Header("ARMOR STATS")]
+    public float armorPoints;
+
     [Header("EFFECTS")]
     public float healthEffect;
     public float hungerEffect;

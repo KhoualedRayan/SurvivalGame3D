@@ -37,8 +37,20 @@ public class PlayerStats : MonoBehaviour
     public float currentThirst;
 
     [Header("OTHER THINGS")]
+
     [SerializeField]
-    private Animator animator;
+    private Animator healthBarAnimator;
+
+    [SerializeField]
+    private Animator playerAnimator;
+
+    [SerializeField]
+    private float currentArmorPoints;
+
+    [SerializeField]
+    private MoveBehaviour playerMovementScript;
+
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,7 +66,7 @@ public class PlayerStats : MonoBehaviour
         UpdateHungerAndThirstBarFill();
         if(Input.GetKeyDown(KeyCode.K))
         {
-            TakeDamage(2);
+            TakeDamage(50f);
         }
     }
 
@@ -65,14 +77,23 @@ public class PlayerStats : MonoBehaviour
             currentHealth -= damage * Time.deltaTime;
         }else
         {
-            currentHealth -= damage;
+            currentHealth -= damage * (1 - (currentArmorPoints / 100) );
         }
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
         {
-            Debug.Log("Player Died");
+            Die();
         }
-        animator.SetTrigger("TakeDamage");
+        healthBarAnimator.SetTrigger("TakeDamage");
         UpdateHealthBarFill();
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        Debug.Log("Player Died");
+        playerMovementScript.SetCanMove(false);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AimBehaviourBasic>().enabled = false;
+        playerAnimator.SetTrigger("Die");
     }
     private void UpdateHealthBarFill()
     {
@@ -105,5 +126,29 @@ public class PlayerStats : MonoBehaviour
         currentHunger = Mathf.Min(maxHunger, hunger + currentHunger);
         currentThirst = Mathf.Min(maxThirst, thirst + currentThirst);
         UpdateHealthBarFill();
+    }
+
+    /* GETTERS */
+    public float GetCurrentArmorPoints()
+    {
+        return currentArmorPoints;
+    }
+    public bool IsDead()
+    {
+        return isDead;
+    }
+    /* SETTERS */
+    public void AddArmorPoints(float armor)
+    {
+        this.currentArmorPoints += armor;
+    }
+    public void RemoveArmorPoints(float armor)
+    {
+        this.currentArmorPoints -= armor;
+    }
+    public void RemoveAndAddArmorPoints(float addedArmorPoints,float removedArmorPoints)
+    {
+        this.currentArmorPoints += addedArmorPoints;
+        this.currentArmorPoints -= removedArmorPoints;
     }
 }

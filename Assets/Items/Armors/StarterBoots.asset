@@ -16,5 +16,11 @@ MonoBehaviour:
   description: Starter leather boots. Comfy but very cheap.
   visual: {fileID: 21300000, guid: c636fde9129857d409019264abc7ab79, type: 3}
   prefab: {fileID: 353392173707857445, guid: 9ae1f67af4deebe43bc192e00a40ffeb, type: 3}
+  stackable: 0
+  maxStack: 0
   type: 1
   equipmentType: 4
+  armorPoints: 2
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0

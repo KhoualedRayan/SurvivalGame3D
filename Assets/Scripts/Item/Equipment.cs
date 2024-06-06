@@ -9,6 +9,9 @@ public class Equipment : MonoBehaviour
     [SerializeField]
     private ItemActionsSystem itemActionsSystem;
 
+    [SerializeField]
+    private PlayerStats playerStats;
+
     [Header("EQUIPMENT SYSTEM VARIABLES")]
 
     [SerializeField]
@@ -92,6 +95,9 @@ public class Equipment : MonoBehaviour
             }
             //On active le modèle 3D de l'équipement
             equipmentLibraryItem.itemPrefab.SetActive(true);
+
+            playerStats.AddArmorPoints(itemActionsSystem.GetItemCurrentlySelected().armorPoints);
+
             // On enlève l'item de l'invetaire et rafrachit le contenu
             Inventory.instance.RemoveItem(itemActionsSystem.GetItemCurrentlySelected());
         }
@@ -156,6 +162,8 @@ public class Equipment : MonoBehaviour
             //On désactive le modèle 3D de l'équipement
             equipmentLibraryItem.itemPrefab.SetActive(false);
         }
+        playerStats.RemoveArmorPoints(currentItem.armorPoints);
+
         Inventory.instance.AddItem(currentItem);
         Inventory.instance.RefreshContent();
     }
@@ -176,6 +184,7 @@ public class Equipment : MonoBehaviour
                 //On désactive le modèle 3D de l'équipement
                 equipmentLibraryItem.itemPrefab.SetActive(false);
             }
+            playerStats.RemoveArmorPoints(itemToDisable.armorPoints);
             Inventory.instance.AddItem(itemToDisable);
         }
     }

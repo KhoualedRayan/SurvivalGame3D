@@ -16,5 +16,11 @@ MonoBehaviour:
   description: A solid iron pants
   visual: {fileID: 21300000, guid: 869a1d3333f2fad42a630f0686bcd047, type: 3}
   prefab: {fileID: 7972321366090734272, guid: c33ed9789ecb4fc468e0296af4f5d4bb, type: 3}
+  stackable: 0
+  maxStack: 0
   type: 1
   equipmentType: 3
+  armorPoints: 4
+  healthEffect: 0
+  hungerEffect: 0
+  thirstEffect: 0

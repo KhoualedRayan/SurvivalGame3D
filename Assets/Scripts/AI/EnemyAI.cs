@@ -6,18 +6,15 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("REFERENCES")]
-    
-    [SerializeField]
-    private Transform player;
-
-    [SerializeField]
-    private PlayerStats playerStats;
-
+   
     [SerializeField]
     private NavMeshAgent agent;
 
     [SerializeField]
     private Animator animator;
+
+    private Transform player;
+    private PlayerStats playerStats;
 
     [Header("STATS")]
 
@@ -63,11 +60,18 @@ public class EnemyAI : MonoBehaviour
 
     private bool isAttacking;
 
+    private void Awake()
+    {
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = playerTransform;
+        playerStats = playerTransform.GetComponent<PlayerStats>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         //Si le joueur est dans la range d'aggro de l'ennemi, alors il le poursuit
-        if(Vector3.Distance(player.position, transform.position) < detectionRadius)
+        if(Vector3.Distance(player.position, transform.position) < detectionRadius && !playerStats.IsDead())
         {
             agent.speed = chaseSpeed;
 
